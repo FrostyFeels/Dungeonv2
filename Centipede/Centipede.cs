@@ -20,6 +20,10 @@ namespace Centipede
             screen = new Point(1920, 1080);
             ApplyResolutionSettings();
 
+            gameStateManager.AddGameState("Play", new PlayingState());
+
+            gameStateManager.SwitchTo("Play");
+
             // TODO: use this.Content to load your game content here
         }
         
