@@ -17,7 +17,7 @@ namespace Centipede
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
-            screen = new Point(470, 550);
+            screen = new Point(1920, 1080);
             ApplyResolutionSettings();
 
             // TODO: use this.Content to load your game content here
