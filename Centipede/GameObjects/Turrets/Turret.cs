@@ -18,6 +18,7 @@ namespace Centipede
         int whatpattern;
         bool spray = false;
         int spraytime = 0;
+        public int hp = 3;
         
 
 

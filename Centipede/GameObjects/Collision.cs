@@ -12,12 +12,12 @@ namespace Centipede
     class Collision : GameObjectList
     {
         Player player;
+        GameObjectList killList = new GameObjectList();
         
        public Collision(Player player)
         {
             this.player = player;
            
-
         }
 
         public override void Update(GameTime gameTime)
@@ -34,6 +34,33 @@ namespace Centipede
 
                     }
                 }
+            }
+
+            foreach (Turret aTurret in PlayingState.turrets.Children)
+            {
+                foreach (Bullet aBullet in ObjectPool.bullets.Children)
+                {
+                    if(!aBullet.enemy)
+                    {
+                        if (aTurret.CollidesWith(aBullet))
+                        {
+                            aBullet.Reset();
+                            aTurret.hp--;
+                        }
+                    }
+
+                }
+                if(aTurret.hp <= 0)
+                {
+                    killList.Add(aTurret);
+                }
+
+            }
+
+            foreach (var aObject in killList.Children)
+            {
+                PlayingState.turrets.Remove(aObject);
+
             }
             
         }

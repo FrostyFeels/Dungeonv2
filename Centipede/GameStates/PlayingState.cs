@@ -15,7 +15,7 @@ namespace Centipede
         public Vector2[] spawnLocation = new Vector2[8];
         public int[] offset = new int[8];
    
-        GameObjectList turrets = new GameObjectList();
+        public static GameObjectList turrets = new GameObjectList();
         GameObjectList turretstands = new GameObjectList();
 
         Collision collision;
