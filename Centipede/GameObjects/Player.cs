@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using FlappyBird;
+
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -12,11 +12,14 @@ namespace Centipede
 {
     class Player : RotatingSpriteGameObject
     {
+        Mouse Mouse;
         float speed = 300f;
-        public Player() : base("Player/spr_player")
+        public Player(Mouse mouse) : base("Player/spr_player")
         {
+            this.Mouse = mouse;
             origin = Center;
             Reset();
+            
         }
 
         public override void Reset()
@@ -26,8 +29,10 @@ namespace Centipede
             position.Y = GameEnvironment.Screen.Y / 2;
         }
 
+        // Handles input for player
         public override void HandleInput(InputHelper inputHelper)
         {
+            
             base.HandleInput(inputHelper);
             if (inputHelper.IsKeyDown(Keys.W)) { velocity.Y = -speed; }
             else if (inputHelper.IsKeyDown(Keys.S)) { velocity.Y = speed; }
@@ -36,11 +41,15 @@ namespace Centipede
             else if (inputHelper.IsKeyDown(Keys.D)) { velocity.X = speed; }
             else velocity.X = 0;
 
+            
+
         }
 
         public override void Update(GameTime gameTime)
         {
-            base.Update(gameTime); 
+            base.Update(gameTime);
+            LookAt(Mouse, -90);
+            
         }
     }
 }
