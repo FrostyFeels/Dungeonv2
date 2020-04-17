@@ -63,7 +63,9 @@
     <Compile Include="GameObjects\Bullet.cs" />
     <Compile Include="GameObjects\Mouse.cs" />
     <Compile Include="GameObjects\Player.cs" />
-    <Compile Include="GameObjects\Turret.cs" />
+    <Compile Include="GameObjects\Turrets\Turret.cs" />
+    <Compile Include="GameObjects\Turrets\TurretPattern.cs" />
+    <Compile Include="GameObjects\Turrets\TurretStand.cs" />
     <Compile Include="GameStates\PlayingState.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

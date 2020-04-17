@@ -12,9 +12,11 @@ namespace Centipede
     class PlayingState : GameObjectList
     {   
         
-        public Vector2[] spawnLocation = new Vector2[8]; 
+        public Vector2[] spawnLocation = new Vector2[8];
+        public int[] offset = new int[8];
    
         GameObjectList turrets = new GameObjectList();
+        GameObjectList turretstands = new GameObjectList();
 
         ObjectPool objectpool;
         Player player;
@@ -31,20 +33,35 @@ namespace Centipede
             spawnLocation[6] = new Vector2(20, 540);
             spawnLocation[7] = new Vector2(1900, 540);
 
+            offset[0] = 25;
+            offset[1] = 0;
+            offset[2] = 180;
+            offset[3] = 140;
+            offset[4] = -35;
+            offset[5] = -135;
+            offset[6] = 90;
+            offset[7] = -90;
+
 
 
             this.Add(new SpriteGameObject("Background/spr_background"));
 
-            
+            this.Add(turretstands);
             this.Add(turrets);
+            
             this.Add(mouse = new Mouse());
             this.Add(player = new Player(mouse));
 
          
             for (int i = 0; i < 8; i++)
             {
+                turretstands.Add(new TurretStand(spawnLocation[i], offset[i]));
                 turrets.Add(new Turret(spawnLocation[i], player));
+                
             }
+         
+           
+            
 
             this.Add(objectpool = new ObjectPool(new Vector2(0,0), new Vector2(0,0)));
 

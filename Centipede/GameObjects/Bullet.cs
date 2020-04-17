@@ -12,13 +12,14 @@ namespace Centipede
     class Bullet : RotatingSpriteGameObject
     {
         
-        public Bullet(String assetName, Vector2 position, Vector2 angulardirection, bool visible) : base(assetName)
+        public Bullet(String assetName, Vector2 position, Vector2 angulardirection, float offset,  bool visible) : base(assetName)
         {
             this.position = position;
             this.AngularDirection = angulardirection;
             origin = Center;
             this.visible = visible;
             offsetDegrees = 90;
+            Degrees += offset;
             
         }
 
@@ -31,7 +32,7 @@ namespace Centipede
                 position += AngularDirection * velocity.X;
             }
 
-            Console.WriteLine(position);
+            
         }
     }
 }

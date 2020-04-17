@@ -20,18 +20,18 @@ namespace Centipede
 
             for (int i = 0; i < 100; i++)
             {
-                bullets.Add(new Bullet("Projectiles/Bullet", pos, ad, false));
+                bullets.Add(new Bullet("Projectiles/Bullet", pos, ad, 0,false));
                 
             }
         }
-        public static void Spawner(Vector2 pos, Vector2 ad)
+        public static void Spawner(Vector2 pos, Vector2 ad, float offset)
         {
 
             foreach (Bullet aBullet in bullets.Children)
             {
                 if (!aBullet.Visible && aBullet != null)
                 {
-                    Spawn(aBullet, pos, ad);
+                    Spawn(aBullet, pos, ad, offset);
                     return;
                 }
             }
@@ -43,13 +43,15 @@ namespace Centipede
 
 
         }
-        public static void Spawn(RotatingSpriteGameObject input, Vector2 pos, Vector2 ad)
+        public static void Spawn(RotatingSpriteGameObject input, Vector2 pos, Vector2 ad, float offset)
         {
             
             input.Visible = true;
             input.Position = pos;
             input.AngularDirection = ad;
             input.Velocity = new Vector2(5, 0);
+            input.Degrees += offset;
+            
            
 
 
