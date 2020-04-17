@@ -14,6 +14,7 @@ namespace Centipede
     {
         Mouse Mouse;
         float speed = 300f;
+        public int hp = 3;
         public Player(Mouse mouse) : base("Player/spr_player")
         {
             this.Mouse = mouse;
@@ -49,6 +50,11 @@ namespace Centipede
         {
             base.Update(gameTime);
             LookAt(Mouse, -90);
+
+            if(hp <= 0)
+            {
+                position.X = -1000;
+            }
             
         }
     }

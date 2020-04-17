@@ -23,6 +23,14 @@ namespace Centipede
             
         }
 
+        public override void Reset()
+        {
+            base.Reset();
+            visible = false;
+            position.X = -1000;
+            velocity = Vector2.Zero;
+        }
+
 
         public override void Update(GameTime gameTime)
         {
@@ -30,6 +38,15 @@ namespace Centipede
             if (visible)
             {
                 position += AngularDirection * velocity.X;
+            }
+
+
+            if(visible)
+            {
+                if(position.X + Width < 0 || position.X > GameEnvironment.Screen.X || position.Y + Height < 0 || position.Y > GameEnvironment.Screen.Y)
+                {
+                    Reset();
+                }
             }
 
             

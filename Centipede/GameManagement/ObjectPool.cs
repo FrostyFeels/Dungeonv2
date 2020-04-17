@@ -11,7 +11,7 @@ namespace Centipede
 {
      class ObjectPool : GameObjectList
      {
-        static GameObjectList bullets = new GameObjectList();
+        public static GameObjectList bullets = new GameObjectList();
         
 
         public ObjectPool(Vector2 pos, Vector2 ad)

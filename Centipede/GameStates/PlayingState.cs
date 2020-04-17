@@ -18,6 +18,7 @@ namespace Centipede
         GameObjectList turrets = new GameObjectList();
         GameObjectList turretstands = new GameObjectList();
 
+        Collision collision;
         ObjectPool objectpool;
         Player player;
         Mouse mouse;
@@ -48,11 +49,13 @@ namespace Centipede
 
             this.Add(turretstands);
             this.Add(turrets);
-            
+           
+                             
             this.Add(mouse = new Mouse());
             this.Add(player = new Player(mouse));
+            this.Add(collision = new Collision(player));
 
-         
+
             for (int i = 0; i < 8; i++)
             {
                 turretstands.Add(new TurretStand(spawnLocation[i], offset[i]));
@@ -66,6 +69,8 @@ namespace Centipede
             this.Add(objectpool = new ObjectPool(new Vector2(0,0), new Vector2(0,0)));
 
         }
+
+         
 
         public override void Update(GameTime gameTime)
         {
