@@ -75,7 +75,7 @@ namespace Centipede
                 whatpattern = 2;
                 timer = 10;
                 spraytime++;
-                Console.WriteLine("spraytime2");
+              
             }
             else 
             { 
@@ -96,7 +96,7 @@ namespace Centipede
             {
                 TurretPattern.Spray(position, AngularDirection);
                 spray = true;
-                Console.WriteLine("spraytime");
+                
             }
 
 

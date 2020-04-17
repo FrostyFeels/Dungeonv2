@@ -25,11 +25,14 @@ namespace Centipede
             base.Update(gameTime);
             foreach (Bullet aBullet in ObjectPool.bullets.Children)
             {
-                if (aBullet.CollidesWith(player))
+                if (aBullet.enemy)
                 {
-                    player.hp--;
-                    aBullet.Reset();
+                    if (aBullet.CollidesWith(player))
+                    {
+                        player.hp--;
+                        aBullet.Reset();
 
+                    }
                 }
             }
             

@@ -14,24 +14,26 @@ namespace Centipede
         public static GameObjectList bullets = new GameObjectList();
         
 
-        public ObjectPool(Vector2 pos, Vector2 ad)
+        public ObjectPool(Vector2 pos, Vector2 ad, Vector2 vel)
         {
             this.Add(bullets);
 
             for (int i = 0; i < 100; i++)
             {
-                bullets.Add(new Bullet("Projectiles/Bullet", pos, ad, 0,false));
+                bullets.Add(new Bullet("Projectiles/Bullet", pos, ad, 0, false, vel, true));
                 
             }
         }
-        public static void Spawner(Vector2 pos, Vector2 ad, float offset)
+        public static void Spawner(Vector2 pos, Vector2 ad, float offset, Vector2 vel, bool enemy)
         {
 
             foreach (Bullet aBullet in bullets.Children)
             {
                 if (!aBullet.Visible && aBullet != null)
                 {
-                    Spawn(aBullet, pos, ad, offset);
+                    aBullet.enemy = enemy;
+                    Spawn(aBullet, pos, ad, offset, vel);
+                    
                     return;
                 }
             }
@@ -43,13 +45,13 @@ namespace Centipede
 
 
         }
-        public static void Spawn(RotatingSpriteGameObject input, Vector2 pos, Vector2 ad, float offset)
+        public static void Spawn(RotatingSpriteGameObject input, Vector2 pos, Vector2 ad, float offset, Vector2 vel)
         {
             
             input.Visible = true;
             input.Position = pos;
             input.AngularDirection = ad;
-            input.Velocity = new Vector2(5, 0);
+            input.Velocity = vel;
             input.Degrees += offset;
             
            

@@ -21,6 +21,7 @@ namespace Centipede
         Collision collision;
         ObjectPool objectpool;
         Player player;
+        PlayerHandeling playercontrol;
         Mouse mouse;
 
         public PlayingState()
@@ -54,6 +55,7 @@ namespace Centipede
             this.Add(mouse = new Mouse());
             this.Add(player = new Player(mouse));
             this.Add(collision = new Collision(player));
+            this.Add(playercontrol = new PlayerHandeling(player));
 
 
             for (int i = 0; i < 8; i++)
@@ -66,7 +68,7 @@ namespace Centipede
            
             
 
-            this.Add(objectpool = new ObjectPool(new Vector2(0,0), new Vector2(0,0)));
+            this.Add(objectpool = new ObjectPool(new Vector2(0,0), new Vector2(0,0), new Vector2(0,0)));
 
         }
 

@@ -64,6 +64,9 @@
     <Compile Include="GameObjects\Collision.cs" />
     <Compile Include="GameObjects\Mouse.cs" />
     <Compile Include="GameObjects\Player\Player.cs" />
+    <Compile Include="GameObjects\Player\PlayerFire.cs" />
+    <Compile Include="GameObjects\Player\PlayerHandeling.cs" />
+    <Compile Include="GameObjects\Player\PlayerWeapons.cs" />
     <Compile Include="GameObjects\Turrets\Turret.cs" />
     <Compile Include="GameObjects\Turrets\TurretPattern.cs" />
     <Compile Include="GameObjects\Turrets\TurretStand.cs" />

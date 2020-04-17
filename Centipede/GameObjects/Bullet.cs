@@ -11,8 +11,9 @@ namespace Centipede
 {
     class Bullet : RotatingSpriteGameObject
     {
-        
-        public Bullet(String assetName, Vector2 position, Vector2 angulardirection, float offset,  bool visible) : base(assetName)
+        public bool enemy;
+
+        public Bullet(String assetName, Vector2 position, Vector2 angulardirection, float offset, bool visible, Vector2 vel, bool enemy) : base(assetName)
         {
             this.position = position;
             this.AngularDirection = angulardirection;
@@ -20,6 +21,8 @@ namespace Centipede
             this.visible = visible;
             offsetDegrees = 90;
             Degrees += offset;
+            velocity = vel;
+            this.enemy = enemy;
             
         }
 

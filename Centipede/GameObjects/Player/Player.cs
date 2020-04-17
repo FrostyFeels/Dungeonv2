@@ -13,8 +13,9 @@ namespace Centipede
     class Player : RotatingSpriteGameObject
     {
         Mouse Mouse;
-        float speed = 300f;
-        public int hp = 3;
+        public float speed = 300f;
+        public int hp = 11113;
+       
         public Player(Mouse mouse) : base("Player/spr_player")
         {
             this.Mouse = mouse;
@@ -35,14 +36,12 @@ namespace Centipede
         {
             
             base.HandleInput(inputHelper);
-            if (inputHelper.IsKeyDown(Keys.W)) { velocity.Y = -speed; }
-            else if (inputHelper.IsKeyDown(Keys.S)) { velocity.Y = speed; }
-            else velocity.Y = 0;
-            if (inputHelper.IsKeyDown(Keys.A)) { velocity.X = -speed; }
-            else if (inputHelper.IsKeyDown(Keys.D)) { velocity.X = speed; }
-            else velocity.X = 0;
+            velocity = PlayerHandeling.newVelocity;
 
             
+
+
+
 
         }
 
@@ -56,6 +55,7 @@ namespace Centipede
                 position.X = -1000;
             }
             
+
         }
     }
 }
