@@ -60,7 +60,6 @@ namespace Centipede
 
         public  void DrawMap(int startrow, int startcolum, int rows, int collums, int i, bool hitbox)
         {
-
             for (int x = startcolum; x < collums; x++)
             {
                 for (int y = startrow; y < rows; y++)
@@ -73,11 +72,8 @@ namespace Centipede
                     map[x, y].Visible = true;
                     map[x, y].Parent = this;
                     map[x, y].Position = GetCellPosition(x, y);
-
                 }
             }
-   
-
         }
 
 

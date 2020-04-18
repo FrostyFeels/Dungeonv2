@@ -29,11 +29,7 @@ namespace Centipede
         PlayerHandeling playercontrol;
         Mouse mouse;
         Level playingfield;
-        Level LeftWall;
-        Level RightWall;
-        Level TopWall;
-        Level BottomWall;
-        Level RandomWall;
+
 
         public PlayingState()
         {
@@ -63,21 +59,17 @@ namespace Centipede
 
 
 
-            this.Add(new SpriteGameObject("Background/spr_background"));
+            
 
            
             this.Add(playingfield = new Level(17, 30));
-            this.Add(LeftWall = new Level(17, 30));
-            this.Add(RightWall = new Level(17, 30));
-            this.Add(TopWall = new Level(17, 30));
-            this.Add(BottomWall = new Level(17, 30));
-            this.Add(RandomWall = new Level(17, 30));
+ 
             playingfield.DrawMap(3, 3, 14, 27, GameEnvironment.Random.Next(0,7), false);
-            LeftWall.DrawMap(0, 0, 17, 3,9, false);
-            RightWall.DrawMap(0, 26, 17, 30, 9, false);
-            TopWall.DrawMap(0, 0, 3, 30, 9,false);
-            BottomWall.DrawMap(14, 0, 17, 30, 9, false);
-            RandomWall.DrawMap(randomstartrow, randomstartcolum, randomheight, randomwidth, GameEnvironment.Random.Next(7, 9),true);
+            playingfield.DrawMap(0, 0, 17, 3,9, false);
+            playingfield.DrawMap(0, 26, 17, 30, 9, false);
+            playingfield.DrawMap(0, 0, 3, 30, 9,false);
+            playingfield.DrawMap(14, 0, 17, 30, 9, false);
+            playingfield.DrawMap(randomstartrow, randomstartcolum, randomheight, randomwidth, GameEnvironment.Random.Next(7, 9),true);
 
             this.Add(turretstands);
             this.Add(turrets);
@@ -106,6 +98,30 @@ namespace Centipede
         public override void Update(GameTime gameTime)
         {
             base.Update(gameTime);
+
+            foreach (Wall awall in Level.map)
+            {
+
+                if (awall.Sprite == awall.sprites[7] || awall.Sprite == awall.sprites[8])
+                {
+                    
+                    if (awall.CollidesWith(player))
+                    {
+                        Console.WriteLine("owo1");
+                        player.WallHit(awall.Position);
+                        break;
+                    }
+                    else
+                    {
+                        player.up = false;
+                        player.down = false;
+                        player.left = false;
+                        player.right = false;
+                    }
+
+                }
+            }
+         
             
         }
     }

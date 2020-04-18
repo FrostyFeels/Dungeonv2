@@ -63,29 +63,27 @@ namespace Centipede
             {
                 foreach (Wall awall in Level.map)
                 {
-                    if(abullet.enemy)
-                    {
+                    
+                    
                         if(awall.hitbox)
                         {
+
                             if (awall.CollidesWith(abullet))
                             {
                                 abullet.Reset();
                             }
                         }
-                    }
-                    if (!abullet.enemy)
-                    {
-                        if (awall.hitbox)
-                        {
-                            if (awall.CollidesWith(abullet))
-                            {
-                                abullet.Reset();
-                            }
-                        }
-                    }
+                    
+           
                 }
 
             }
+       
+
+
+         
+
+
 
             foreach (var aObject in killList.Children)
             {

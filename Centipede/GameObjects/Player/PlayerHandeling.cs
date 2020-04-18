@@ -23,13 +23,13 @@ namespace Centipede
         public override void HandleInput(InputHelper inputHelper)
         {
             base.HandleInput(inputHelper);
-            if (inputHelper.IsKeyDown(Keys.W)) { newVelocity.Y = -player.speed; }
-            else if (inputHelper.IsKeyDown(Keys.S)) { newVelocity.Y = player.speed; }
+            if (inputHelper.IsKeyDown(Keys.W) && !player.up) { newVelocity.Y = -player.speed; }
+            else if (inputHelper.IsKeyDown(Keys.S) && !player.down) { newVelocity.Y = player.speed; }
             else { newVelocity.Y = 0; }
           
 
-            if (inputHelper.IsKeyDown(Keys.A)) { newVelocity.X = -player.speed; }
-            else if (inputHelper.IsKeyDown(Keys.D)) { newVelocity.X = player.speed; }
+            if (inputHelper.IsKeyDown(Keys.A) && !player.left) { newVelocity.X = -player.speed; }
+            else if (inputHelper.IsKeyDown(Keys.D) && !player.right) { newVelocity.X = player.speed; }
             else { newVelocity.X = 0; }
 
             if(inputHelper.KeyPressed(Keys.D1)) { PlayerWeapons.Pistol(); }
