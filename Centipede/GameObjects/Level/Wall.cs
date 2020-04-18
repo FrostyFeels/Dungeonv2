@@ -12,9 +12,10 @@ namespace Centipede
     
     class Wall : SpriteGameObject
     {
-        SpriteSheet[] sprites;
+        public SpriteSheet[] sprites;
+        public bool hitbox= false;
  
-        public Wall(int i) : base("Background/spr_fill_01")
+        public Wall(int i, bool hitbox) : base("Background/spr_fill_01")
         {
             sprites = new SpriteSheet[10];
             sprites[0] = new SpriteSheet("Background/spr_fill_01");
@@ -28,6 +29,7 @@ namespace Centipede
             sprites[8] = new SpriteSheet("Background/spr_wall_02");
             sprites[9] = new SpriteSheet("Background/spr_fill_roof_02");
 
+            this.hitbox = hitbox;
             sprite = sprites[i];
 
         }

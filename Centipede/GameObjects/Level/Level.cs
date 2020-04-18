@@ -12,12 +12,12 @@ namespace Centipede
     
     class Level : GameObject
     {
-        static Wall[,] map;
+        public static Wall[,] map;
         int rows;
         int collums;
 
         Vector2 cellSize;
-        String assetname;
+       
         
 
         public Level(int rows, int collums)
@@ -52,13 +52,13 @@ namespace Centipede
 
         public void AddMap(int x, int y, int i)
         {
-            map[x, y] = new Wall(i);
+            map[x, y] = new Wall(i, false);
             map[x, y].Visible = false;
             map[x, y].Parent = this;
             map[x, y].Position = GetCellPosition(x, y);
         }
 
-        public  void DrawMap(int startrow, int startcolum, int rows, int collums, int i)
+        public  void DrawMap(int startrow, int startcolum, int rows, int collums, int i, bool hitbox)
         {
 
             for (int x = startcolum; x < collums; x++)
@@ -67,8 +67,8 @@ namespace Centipede
                 {
                     if((x == 2 && y > 1 && y < 15) || (y == 2 && x > 1 && x < 27) || (x == 26 && y < 15 && y > 2) || (y == 14 && x > 1 && x < 27) )
                     {
-                        map[x, y] = new Wall(GameEnvironment.Random.Next(7,9));
-                    } else { map[x, y] = new Wall(i);  }
+                        map[x, y] = new Wall(GameEnvironment.Random.Next(7,9),hitbox);
+                    } else { map[x, y] = new Wall(i, hitbox);  }
                     
                     map[x, y].Visible = true;
                     map[x, y].Parent = this;

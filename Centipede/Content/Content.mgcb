@@ -133,6 +133,24 @@
 /processorParam:TextureFormat=Color
 /build:Projectiles/Bullet.png
 
+#begin Sound/BackGroundMusic.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Sound/BackGroundMusic.mp3
+
+#begin Sound/BulletsSound.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sound/BulletsSound.wav
+
+#begin Sound/ExplosionSound.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Sound/ExplosionSound.mp3
+
 #begin Turret/spr_turret.png
 /importer:TextureImporter
 /processor:TextureProcessor

@@ -23,6 +23,8 @@ namespace Centipede
         public override void Update(GameTime gameTime)
         {
             base.Update(gameTime);
+
+            //Player/Bullet hitbox detection
             foreach (Bullet aBullet in ObjectPool.bullets.Children)
             {
                 if (aBullet.enemy)
@@ -35,7 +37,7 @@ namespace Centipede
                     }
                 }
             }
-
+            //Turret Bullet Hitbox
             foreach (Turret aTurret in PlayingState.turrets.Children)
             {
                 foreach (Bullet aBullet in ObjectPool.bullets.Children)
@@ -53,6 +55,34 @@ namespace Centipede
                 if(aTurret.hp <= 0)
                 {
                     killList.Add(aTurret);
+                }
+
+            }
+
+            foreach (Bullet abullet in ObjectPool.bullets.Children)
+            {
+                foreach (Wall awall in Level.map)
+                {
+                    if(abullet.enemy)
+                    {
+                        if(awall.hitbox)
+                        {
+                            if (awall.CollidesWith(abullet))
+                            {
+                                abullet.Reset();
+                            }
+                        }
+                    }
+                    if (!abullet.enemy)
+                    {
+                        if (awall.hitbox)
+                        {
+                            if (awall.CollidesWith(abullet))
+                            {
+                                abullet.Reset();
+                            }
+                        }
+                    }
                 }
 
             }
