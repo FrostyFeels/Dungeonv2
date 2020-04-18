@@ -23,6 +23,11 @@ namespace Centipede
         Player player;
         PlayerHandeling playercontrol;
         Mouse mouse;
+        Level playingfield;
+        Level LeftWall;
+        Level RightWall;
+        Level TopWall;
+        Level BottomWall;
 
         public PlayingState()
         {
@@ -48,10 +53,20 @@ namespace Centipede
 
             this.Add(new SpriteGameObject("Background/spr_background"));
 
+           
+            this.Add(playingfield = new Level(17, 30, "Background/spr_fill_01"));
+            this.Add(LeftWall = new Level(17, 30, "Background/spr_fill_roof_02"));
+            this.Add(RightWall = new Level(17, 30, "Background/spr_fill_roof_02"));
+            this.Add(TopWall = new Level(17, 30, "Background/spr_fill_roof_02"));
+            this.Add(BottomWall = new Level(17, 30, "Background/spr_fill_roof_02"));
+            playingfield.DrawMap(3, 3, 14, 27, "Background/spr_fill_01");
+            LeftWall.DrawMap(0, 0, 17, 3,"Background/spr_fill_roof_02");
+            RightWall.DrawMap(0, 26, 17, 30, "Background/spr_fill_roof_02");
+            TopWall.DrawMap(0, 0, 3, 30, "Background/spr_fill_roof_02");
+            BottomWall.DrawMap(14, 0, 17, 30, "Background/spr_fill_roof_02");
+
             this.Add(turretstands);
             this.Add(turrets);
-           
-                             
             this.Add(mouse = new Mouse());
             this.Add(player = new Player(mouse));
             this.Add(collision = new Collision(player));

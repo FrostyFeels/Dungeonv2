@@ -62,6 +62,8 @@
     <Compile Include="GameManagement\TextGameObject.cs" />
     <Compile Include="GameObjects\Bullet.cs" />
     <Compile Include="GameObjects\Collision.cs" />
+    <Compile Include="GameObjects\Level\Level.cs" />
+    <Compile Include="GameObjects\Level\Wall.cs" />
     <Compile Include="GameObjects\Mouse.cs" />
     <Compile Include="GameObjects\Player\Player.cs" />
     <Compile Include="GameObjects\Player\PlayerFire.cs" />
