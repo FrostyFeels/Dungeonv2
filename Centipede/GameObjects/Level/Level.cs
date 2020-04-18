@@ -20,10 +20,10 @@ namespace Centipede
         String assetname;
         
 
-        public Level(int rows, int collums, String AssetName)
+        public Level(int rows, int collums)
         {
 
-            this.assetname = AssetName;
+          
             this.rows = rows;
             this.collums = collums;
          
@@ -42,7 +42,7 @@ namespace Centipede
             {
                 for (int y = 0; y < rows; y++)
                 {
-                    AddMap(x, y, assetname);
+                    AddMap(x, y, 0);
                 }
             }
 
@@ -50,22 +50,26 @@ namespace Centipede
         }
 
 
-        public void AddMap(int x, int y, String assetName)
+        public void AddMap(int x, int y, int i)
         {
-            map[x, y] = new Wall(assetName);
+            map[x, y] = new Wall(i);
             map[x, y].Visible = false;
             map[x, y].Parent = this;
             map[x, y].Position = GetCellPosition(x, y);
         }
 
-        public  void DrawMap(int startrow, int startcolum, int rows, int collums, String assetName)
+        public  void DrawMap(int startrow, int startcolum, int rows, int collums, int i)
         {
 
             for (int x = startcolum; x < collums; x++)
             {
                 for (int y = startrow; y < rows; y++)
                 {
-                    map[x,y] = new Wall(assetName);
+                    if((x == 2 && y > 1 && y < 15) || (y == 2 && x > 1 && x < 27) || (x == 26 && y < 15 && y > 2) || (y == 14 && x > 1 && x < 27) )
+                    {
+                        map[x, y] = new Wall(GameEnvironment.Random.Next(7,9));
+                    } else { map[x, y] = new Wall(i);  }
+                    
                     map[x, y].Visible = true;
                     map[x, y].Parent = this;
                     map[x, y].Position = GetCellPosition(x, y);
