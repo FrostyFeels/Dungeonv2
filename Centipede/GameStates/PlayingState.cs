@@ -18,6 +18,11 @@ namespace Centipede
         public static GameObjectList turrets = new GameObjectList();
         GameObjectList turretstands = new GameObjectList();
 
+        public int randomstartrow;
+        public int randomstartcolum;
+        public int randomwidth;
+        public int randomheight;
+
         Collision collision;
         ObjectPool objectpool;
         Player player;
@@ -28,9 +33,16 @@ namespace Centipede
         Level RightWall;
         Level TopWall;
         Level BottomWall;
+        Level RandomWall;
 
         public PlayingState()
         {
+            randomstartrow = GameEnvironment.Random.Next(3, 11);
+            randomstartcolum = GameEnvironment.Random.Next(3, 24);
+            randomwidth = randomstartcolum + GameEnvironment.Random.Next(1, 4);
+            randomheight = randomstartrow + GameEnvironment.Random.Next(1, 4);
+
+
             spawnLocation[0] = new Vector2(100, 50);
             spawnLocation[1] = new Vector2(960, 50);
             spawnLocation[2] = new Vector2(960, 1025);
@@ -59,11 +71,13 @@ namespace Centipede
             this.Add(RightWall = new Level(17, 30));
             this.Add(TopWall = new Level(17, 30));
             this.Add(BottomWall = new Level(17, 30));
+            this.Add(RandomWall = new Level(17, 30));
             playingfield.DrawMap(3, 3, 14, 27, GameEnvironment.Random.Next(0,7));
             LeftWall.DrawMap(0, 0, 17, 3,9);
             RightWall.DrawMap(0, 26, 17, 30, 9);
             TopWall.DrawMap(0, 0, 3, 30, 9);
             BottomWall.DrawMap(14, 0, 17, 30, 9);
+            RandomWall.DrawMap(randomstartrow, randomstartcolum, randomheight, randomwidth, GameEnvironment.Random.Next(7, 9));
 
             this.Add(turretstands);
             this.Add(turrets);
