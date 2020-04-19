@@ -58,13 +58,17 @@ namespace Centipede
             map[x, y].Position = GetCellPosition(x, y);
         }
 
-        public  void DrawMap(int startrow, int startcolum, int rows, int collums, int i, bool hitbox)
+        public  void DrawMap(int startrow, int startcolum, int rows, int collums, int i, bool hitbox, bool wall)
         {
             for (int x = startcolum; x < collums; x++)
             {
                 for (int y = startrow; y < rows; y++)
                 {
-                    if((x == 2 && y > 1 && y < 15) || (y == 2 && x > 1 && x < 27) || (x == 26 && y < 15 && y > 2) || (y == 14 && x > 1 && x < 27) )
+                    if(wall)
+                    {
+                        map[x, y] = new Wall(GameEnvironment.Random.Next(0, 7), hitbox);
+                    }
+                    else if((x == 2 && y > 1 && y < 15) || (y == 2 && x > 1 && x < 27) || (x == 26 && y < 15 && y > 2) || (y == 14 && x > 1 && x < 27) )
                     {
                         map[x, y] = new Wall(GameEnvironment.Random.Next(7,9),hitbox);
                     } else { map[x, y] = new Wall(i, hitbox);  }

@@ -24,7 +24,7 @@ namespace Centipede
                 Centipede.AssetManager.PlaySound("Sound/BulletsSound");
                 for (int i = 0; i < 5; i++)
                 {
-                    ObjectPool.Spawner(pos, ad, -12 + i * 6, vel, false);
+                    ObjectPool.Spawner(pos, ad, -12 + i * 6, vel, false, 1);
                     Console.WriteLine("Shotgun baby");
                     
                 }
@@ -33,7 +33,7 @@ namespace Centipede
             else
             {
                 Centipede.AssetManager.PlaySound("Sound/BulletsSound");
-                ObjectPool.Spawner(pos, ad, PlayerWeapons.offsetAngle, vel, false);
+                ObjectPool.Spawner(pos, ad, PlayerWeapons.offsetAngle, vel, false, 1 );
                
 
             }

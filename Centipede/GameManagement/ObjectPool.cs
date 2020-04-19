@@ -18,18 +18,18 @@ namespace Centipede
         {
             this.Add(bullets);
 
-            for (int i = 0; i < 100; i++)
+            for (int i = 0; i < 50; i++)
             {
-                bullets.Add(new Bullet("Projectiles/Bullet", pos, ad, 0, false, vel, true));
-                
+                bullets.Add(new Bullet("Projectiles/Bullet", pos, ad, 0, false, vel, true, 0));
+                bullets.Add(new Bullet("Projectiles/Bullet", pos, ad, 0, false, vel, true, 1));
             }
         }
-        public static void Spawner(Vector2 pos, Vector2 ad, float offset, Vector2 vel, bool enemy)
+        public static void Spawner(Vector2 pos, Vector2 ad, float offset, Vector2 vel, bool enemy, int i)
         {
 
             foreach (Bullet aBullet in bullets.Children)
             {
-                if (!aBullet.Visible && aBullet != null)
+                if (!aBullet.Visible && aBullet != null && aBullet.Sprite == aBullet.sprites[i])
                 {
                     aBullet.enemy = enemy;
                     Spawn(aBullet, pos, ad, offset, vel);

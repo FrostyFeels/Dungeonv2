@@ -19,7 +19,7 @@ namespace Centipede
             Centipede.AssetManager.PlaySound("Sound/BulletsSound");
             for (int i = 0; i < 5; i++)
             {
-                ObjectPool.Spawner(pos, ad, -12 + (i*6), new Vector2(5,0), true);
+                ObjectPool.Spawner(pos, ad, -12 + (i*6), new Vector2(5,0), true, 0 );
             }
             
         }
@@ -28,14 +28,14 @@ namespace Centipede
         {
             SoundEffect.MasterVolume = 0.05f;
             Centipede.AssetManager.PlaySound("Sound/BulletsSound");
-            ObjectPool.Spawner(pos, ad, 0, new Vector2(5, 0), true);
+            ObjectPool.Spawner(pos, ad, 0, new Vector2(5, 0), true, 0);
         }
 
         public static void Spray(Vector2 pos, Vector2 ad)
         {
             SoundEffect.MasterVolume = 0.05f;
             Centipede.AssetManager.PlaySound("Sound/BulletsSound");
-            ObjectPool.Spawner(pos, ad, 0, new Vector2(5, 0), true);
+            ObjectPool.Spawner(pos, ad, 0, new Vector2(5, 0), true, 0);
         }
 
 

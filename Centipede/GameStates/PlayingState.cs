@@ -64,12 +64,12 @@ namespace Centipede
            
             this.Add(playingfield = new Level(17, 30));
  
-            playingfield.DrawMap(3, 3, 14, 27, GameEnvironment.Random.Next(0,7), false);
-            playingfield.DrawMap(0, 0, 17, 3,9, false);
-            playingfield.DrawMap(0, 26, 17, 30, 9, false);
-            playingfield.DrawMap(0, 0, 3, 30, 9,false);
-            playingfield.DrawMap(14, 0, 17, 30, 9, false);
-            playingfield.DrawMap(randomstartrow, randomstartcolum, randomheight, randomwidth, GameEnvironment.Random.Next(7, 9),true);
+            playingfield.DrawMap(3, 3, 14, 27, GameEnvironment.Random.Next(0,7), false, true);
+            playingfield.DrawMap(0, 0, 17, 3,9, false, false);
+            playingfield.DrawMap(0, 26, 17, 30, 9, false, false);
+            playingfield.DrawMap(0, 0, 3, 30, 9,false, false);
+            playingfield.DrawMap(14, 0, 17, 30, 9, false, false);
+            playingfield.DrawMap(randomstartrow, randomstartcolum, randomheight, randomwidth, GameEnvironment.Random.Next(7, 9),true, false);
 
             this.Add(turretstands);
             this.Add(turrets);

@@ -13,8 +13,14 @@ namespace Centipede
     {
         public bool enemy;
 
-        public Bullet(String assetName, Vector2 position, Vector2 angulardirection, float offset, bool visible, Vector2 vel, bool enemy) : base(assetName)
+        public SpriteSheet[] sprites;
+
+        public Bullet(String assetName, Vector2 position, Vector2 angulardirection, float offset, bool visible, Vector2 vel, bool enemy, int i) : base(assetName)
         {
+            sprites = new SpriteSheet[2];
+            sprites[0] = new SpriteSheet("Projectiles/Bullet");
+            sprites[1] = new SpriteSheet("Player/spr_player_bullets");
+
             this.position = position;
             this.AngularDirection = angulardirection;
             origin = Center;
@@ -23,6 +29,8 @@ namespace Centipede
             Degrees += offset;
             velocity = vel;
             this.enemy = enemy;
+
+            sprite = sprites[i];
             
         }
 
