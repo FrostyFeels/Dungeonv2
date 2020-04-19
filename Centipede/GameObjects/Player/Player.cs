@@ -10,6 +10,7 @@ using Microsoft.Xna.Framework.Input;
 
 namespace Centipede
 {
+
     class Player : RotatingSpriteGameObject
     {
         public Vector2 truePlayer;
@@ -18,12 +19,15 @@ namespace Centipede
         public float speed = 300f;
         public int hp = 11113;
         public bool right, left, up, down = false;
+        public int radius = 250;
+        
 
         public Player(Mouse mouse) : base("Player/spr_player")
         {
             this.Mouse = mouse;
             origin = Center;
             Reset();
+            
             
         }
 

@@ -17,6 +17,7 @@ namespace Centipede
    
         public static GameObjectList turrets = new GameObjectList();
         GameObjectList turretstands = new GameObjectList();
+        public static GameObjectList Enemies = new GameObjectList();
 
         public int randomstartrow;
         public int randomstartcolum;
@@ -73,6 +74,7 @@ namespace Centipede
 
             this.Add(turretstands);
             this.Add(turrets);
+            this.Add(Enemies);
             this.Add(mouse = new Mouse());
             this.Add(player = new Player(mouse));
             this.Add(collision = new Collision(player));
@@ -85,6 +87,12 @@ namespace Centipede
                 turrets.Add(new Turret(spawnLocation[i], player));
                 
             }
+
+        
+                Enemies.Add(new Shotgun("Enemies/spr_enemy_01", Level.map[GameEnvironment.Random.Next(3, 26), GameEnvironment.Random.Next(3, 13)].Position, player));
+                Enemies.Add(new Single("Enemies/spr_enemy_01", Level.map[GameEnvironment.Random.Next(3, 26), GameEnvironment.Random.Next(3, 13)].Position, player));
+                Enemies.Add(new Spray("Enemies/spr_enemy_01", Level.map[GameEnvironment.Random.Next(3, 26), GameEnvironment.Random.Next(3, 13)].Position, player));
+            
          
            
             

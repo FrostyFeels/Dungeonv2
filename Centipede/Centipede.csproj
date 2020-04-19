@@ -62,6 +62,10 @@
     <Compile Include="GameManagement\TextGameObject.cs" />
     <Compile Include="GameObjects\Bullet.cs" />
     <Compile Include="GameObjects\Collision.cs" />
+    <Compile Include="GameObjects\Enemies\Enemy.cs" />
+    <Compile Include="GameObjects\Enemies\Shotgun.cs" />
+    <Compile Include="GameObjects\Enemies\Single.cs" />
+    <Compile Include="GameObjects\Enemies\Sprat.cs" />
     <Compile Include="GameObjects\Level\Level.cs" />
     <Compile Include="GameObjects\Level\Wall.cs" />
     <Compile Include="GameObjects\Mouse.cs" />
@@ -69,6 +73,12 @@
     <Compile Include="GameObjects\Player\PlayerFire.cs" />
     <Compile Include="GameObjects\Player\PlayerHandeling.cs" />
     <Compile Include="GameObjects\Player\PlayerWeapons.cs" />
+    <Compile Include="GameObjects\PowerUps\AttackSpeed.cs" />
+    <Compile Include="GameObjects\PowerUps\DamageUp.cs" />
+    <Compile Include="GameObjects\PowerUps\Dash.cs" />
+    <Compile Include="GameObjects\PowerUps\HealthUp.cs" />
+    <Compile Include="GameObjects\PowerUps\Powerup.cs" />
+    <Compile Include="GameObjects\PowerUps\Shield.cs" />
     <Compile Include="GameObjects\Turrets\Turret.cs" />
     <Compile Include="GameObjects\Turrets\TurretPattern.cs" />
     <Compile Include="GameObjects\Turrets\TurretStand.cs" />

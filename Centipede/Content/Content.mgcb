@@ -85,6 +85,18 @@
 /processorParam:TextureFormat=Color
 /build:Background/spr_wall_02.png
 
+#begin Enemies/spr_enemy_01.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Enemies/spr_enemy_01.png
+
 #begin Player/spr_mouse.png
 /importer:TextureImporter
 /processor:TextureProcessor
