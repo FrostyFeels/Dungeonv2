@@ -17,7 +17,7 @@ namespace Centipede
         public Vector2 trueWall;
         Mouse Mouse;
         public float speed = 300f;
-        public int hp = 11113;
+        public int hp = 3;
         public bool right, left, up, down = false;
         public int radius = 250;
         

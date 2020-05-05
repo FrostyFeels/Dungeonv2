@@ -82,9 +82,12 @@
     <Compile Include="GameObjects\Turrets\Turret.cs" />
     <Compile Include="GameObjects\Turrets\TurretPattern.cs" />
     <Compile Include="GameObjects\Turrets\TurretStand.cs" />
+    <Compile Include="GameStates\EndState.cs" />
     <Compile Include="GameStates\PlayingState.cs" />
+    <Compile Include="GameStates\StartState.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="GameObjects\Score.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MonoGame.Framework">

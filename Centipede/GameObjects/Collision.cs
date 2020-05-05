@@ -12,11 +12,13 @@ namespace Centipede
     class Collision : GameObjectList
     {
         Player player;
+        Score score;
         GameObjectList killList = new GameObjectList();
         
-       public Collision(Player player)
+       public Collision(Player player, Score score)
         {
             this.player = player;
+            this.score = score;
            
         }
 
@@ -48,6 +50,7 @@ namespace Centipede
                         {
                             aBullet.Reset();
                             aTurret.hp--;
+                            score.getScore++;
                         }
                     }
 

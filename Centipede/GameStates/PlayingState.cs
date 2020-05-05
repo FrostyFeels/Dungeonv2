@@ -27,6 +27,7 @@ namespace Centipede
         Collision collision;
         ObjectPool objectpool;
         Player player;
+        Score score;
         PlayerHandeling playercontrol;
         Mouse mouse;
         Level playingfield;
@@ -71,14 +72,16 @@ namespace Centipede
             playingfield.DrawMap(0, 0, 3, 30, 9,false, false);
             playingfield.DrawMap(14, 0, 17, 30, 9, false, false);
             playingfield.DrawMap(randomstartrow, randomstartcolum, randomheight, randomwidth, GameEnvironment.Random.Next(7, 9),true, false);
-
+            
+            this.Add(score = new Score());
             this.Add(turretstands);
             this.Add(turrets);
             this.Add(Enemies);
             this.Add(mouse = new Mouse());
             this.Add(player = new Player(mouse));
-            this.Add(collision = new Collision(player));
+            this.Add(collision = new Collision(player, score));
             this.Add(playercontrol = new PlayerHandeling(player));
+           
 
 
             for (int i = 0; i < 8; i++)
@@ -106,6 +109,18 @@ namespace Centipede
         public override void Update(GameTime gameTime)
         {
             base.Update(gameTime);
+            if(player.hp <= 0)
+            {
+                GameEnvironment.GameStateManager.SwitchTo("End");
+                ObjectPool.bullets.Reset();
+                foreach (Turret aturret in turrets.Children)
+                {
+                    aturret.hp = 3;
+                }
+                score = 0;
+                player.Reset();
+                player.hp = 3;
+            }
 
             foreach (Wall awall in Level.map)
             {

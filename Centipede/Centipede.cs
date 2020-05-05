@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using Microsoft.Xna.Framework.Audio;
+using Centipede.GameStates;
 
 namespace Centipede
 {
@@ -23,10 +24,12 @@ namespace Centipede
             spriteBatch = new SpriteBatch(GraphicsDevice);
             screen = new Point(1920, 1080);
             ApplyResolutionSettings();
+           
+            gameStateManager.AddGameState("Start", new StartState());
+            gameStateManager.AddGameState("Play", new PlayingState());         
+            gameStateManager.AddGameState("End", new EndState());
 
-            gameStateManager.AddGameState("Play", new PlayingState());
-
-            gameStateManager.SwitchTo("Play");
+            gameStateManager.SwitchTo("Start");
 
             this.song = Content.Load<Song>("Sound/BackGroundMusic");
             MediaPlayer.Volume = 0.05f;
