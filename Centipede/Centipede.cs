@@ -28,6 +28,7 @@ namespace Centipede
             gameStateManager.AddGameState("Start", new StartState());
             gameStateManager.AddGameState("Play", new PlayingState());         
             gameStateManager.AddGameState("End", new EndState());
+            gameStateManager.AddGameState("Win", new WinState());
 
             gameStateManager.SwitchTo("Start");
 

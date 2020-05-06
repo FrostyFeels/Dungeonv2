@@ -57,7 +57,7 @@ namespace Centipede
                 }
                 if(aTurret.hp <= 0)
                 {
-                    killList.Add(aTurret);
+                    aTurret.Reset();
                 }
 
             }

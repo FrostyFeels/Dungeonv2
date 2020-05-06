@@ -116,10 +116,28 @@ namespace Centipede
                 foreach (Turret aturret in turrets.Children)
                 {
                     aturret.hp = 3;
+                    aturret.alive = true;
+                    aturret.Position = aturret.startposition;
                 }
-                score = 0;
+                score.Reset();
                 player.Reset();
                 player.hp = 3;
+            }
+
+            if(score.score >= 24)
+            {
+                GameEnvironment.GameStateManager.SwitchTo("Win");
+                ObjectPool.bullets.Reset();
+                foreach (Turret aturret in turrets.Children)
+                {
+                    aturret.hp = 3;
+                    aturret.alive = true;
+                    aturret.Position = aturret.startposition;
+                }
+                score.Reset();
+                player.Reset();
+                player.hp = 3;
+
             }
 
             foreach (Wall awall in Level.map)

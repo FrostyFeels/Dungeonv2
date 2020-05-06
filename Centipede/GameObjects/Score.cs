@@ -11,7 +11,7 @@ namespace Centipede
 {
     class Score : TextGameObject
     {
-        protected int score;
+        public int score;
         public Score() : base("GameFont")
         {
             position.X = 250;

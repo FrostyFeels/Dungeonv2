@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -19,6 +20,8 @@ namespace Centipede
         bool spray = false;
         int spraytime = 0;
         public int hp = 3;
+        public bool alive = true;
+        public Vector2 startposition;
         
 
 
@@ -28,8 +31,16 @@ namespace Centipede
             position = startposition;
             origin = Center;
             ReadyToFire();
+            this.startposition = startposition;
 
 
+        }
+
+        public override void Reset()
+        {
+            base.Reset();
+            alive = false;
+            position.X = -1000;
         }
 
         public override void HandleInput(InputHelper inputHelper)
@@ -41,7 +52,11 @@ namespace Centipede
         public override void Update(GameTime gameTime)
         {
             base.Update(gameTime);
-            framecount++;
+            if(alive)
+            {
+                framecount++;
+            }
+            
             ReadyToFire();
             LookAt(player, 90);
            
